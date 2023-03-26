@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Radioknappgrupp</title>
+</head>
+<body>
+	<h1>Välj en färg</h1>
+	<form>
+		<input type="radio" id="red" name="color" value="red">
+		<label for="red">Röd</label><br>
+
+		<input type="radio" id="green" name="color" value="green">
+		<label for="green">Grön</label><br>
+
+		<input type="radio" id="blue" name="color" value="blue">
+		<label for="blue">Blå</label><br>
+
+		<input type="button" value="Visa vald färg" onclick="showColor()">
+	</form>
+
+	<div id="output"></div>
+
+	<script>
+		function showColor() {
+			var radios = document.getElementsByName("color");
+			var selectedValue;
+
+			for (var i = 0; i < radios.length; i++) {
+				if (radios[i].checked) {
+					selectedValue = radios[i].value;
+					break;
+				}
+			}
+
+			if (selectedValue) {
+				var output = document.getElementById("output");
+				output.innerHTML = "Du valde färgen " + selectedValue;
+			} else {
+				alert("Vänligen välj en färg");
+			}
+		}
+	</script>
+</body>
+</html>

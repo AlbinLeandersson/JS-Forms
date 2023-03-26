@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulär</title>
+</head>
+<body>
+	<h1>Registreringsformulär</h1>
+	<form onsubmit="return validateForm()">
+		<label for="fname">Förnamn:</label>
+		<input type="text" id="fname" name="fname" required><br>
+
+		<label for="lname">Efternamn:</label>
+		<input type="text" id="lname" name="lname" required><br>
+
+		<label for="age">Ålder:</label>
+		<input type="number" id="age" name="age" required min="18" max="58"><br>
+
+		<label for="email">E-postadress:</label>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="mobilePhone">Mobiltelefon:</label>
+		<input type="tel" id="mobilePhone" name="mobilePhone" required><br>
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<div id="output"></div>
+
+	<script>
+		function validateForm() {
+			var fname = document.forms[0]["fname"].value;
+			var lname = document.forms[0]["lname"].value;
+			var age = document.forms[0]["age"].value;
+			var email = document.forms[0]["email"].value;
+			var mobilePhone = document.forms[0]["mobilePhone"].value;
+
+			if (fname == "" || lname == "" || age == "" || email == "" || mobilePhone == "") {
+				alert("Vänligen fyll i alla fält");
+				return false;
+			}
+
+			if (age < 18 || age > 58) {
+				alert("Åldern måste vara mellan 18 och 58 år");
+				return false;
+			}
+
+			return true;
+		}
+
+		document.querySelector("form").addEventListener("submit", function(event) {
+			event.preventDefault();
+
+			var fname = document.forms[0]["fname"].value;
+			var lname = document.forms[0]["lname"].value;
+			var age = document.forms[0]["age"].value;
+			var email = document.forms[0]["email"].value;
+			var mobilePhone = document.forms[0]["mobilePhone"].value;
+
+			var output = document.getElementById("output");
+			output.innerHTML = "Förnamn: " + fname + "<br>"
+							  + "Efternamn: " + lname + "<br>"
+							  + "Ålder: " + age + "<br>"
+							  + "E-postadress: " + email + "<br>"
+							  + "Mobiltelefon: " + mobilePhone;
+		});
+	</script>
+</body>
+</html>

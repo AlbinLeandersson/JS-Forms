@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<label for="text1">Textfält 1:</label>
+		<input type="text" id="text1" name="text1"><br>
+
+		<label for="text2">Textfält 2:</label>
+		<input type="text" id="text2" name="text2"><br>
+
+		<button type="button" onclick="showAlert()">Visa innehåll</button>
+	</form>
+
+	<script>
+		function showAlert() {
+			var text1Value = document.getElementById("text1").value;
+			var text2Value = document.getElementById("text2").value;
+
+			alert("Textfält 1: " + text1Value + "\nTextfält 2: " + text2Value);
+		}
+	</script>
+</body>
+</html>
